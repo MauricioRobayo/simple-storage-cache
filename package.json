@@ -13,7 +13,10 @@
     "type": "git",
     "url": "git+https://github.com/MauricioRobayo/simple-localstorage-cache.git"
   },
-  "keywords": [],
+  "keywords": [
+    "localStorage",
+    "cache"
+  ],
   "author": "Mauricio Robayo <rfmajo@gmail.com> (https://www.mauriciorobayo.com/)",
   "license": "MIT",
   "bugs": {
