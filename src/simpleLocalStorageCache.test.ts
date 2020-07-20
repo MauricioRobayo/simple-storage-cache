@@ -55,6 +55,15 @@ describe("Cache", () => {
     expect(getItemSpy).toBeCalledTimes(1);
   });
 
+  it("should expire after a given number of seconds", async () => {
+    const expiration = 5; // seconds
+    const cache = new Cache<TestData>("test", expiration);
+    cache.update(testData);
+    expect(cache.hasCache()).toBe(true);
+    global.Date.now = jest.fn(() => (new Date().getTime() + expiration * 1000));
+    expect(cache.hasCache()).toBe(false);
+  });
+
   it("should return null if expiration time is set to '0'", () => {
     const cache = new Cache<TestData>("test", 0);
     cache.update(testData);
