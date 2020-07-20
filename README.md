@@ -1,10 +1,12 @@
-# Simple localStorage Cache
+# Simple localStorage Cache [![npm version](https://badge.fury.io/js/simple-localstorage-cache.svg)](https://www.npmjs.com/package/simple-localstorage-cache)
 
 ![build and release](https://github.com/MauricioRobayo/simple-localstorage-cache/workflows/build%20and%20release/badge.svg)
 [![codecov](https://codecov.io/gh/MauricioRobayo/simple-localstorage-cache/branch/master/graph/badge.svg)](https://codecov.io/gh/MauricioRobayo/simple-localstorage-cache)
 [![CodeFactor](https://www.codefactor.io/repository/github/mauriciorobayo/simple-localstorage-cache/badge)](https://www.codefactor.io/repository/github/mauriciorobayo/simple-localstorage-cache)
 
-A **simple localStorage cache** that you can use to save API responses and avoid making multiple unnecessary requests.
+Simple localStorage cache to save API responses and avoid multiple unnecessary requests.
+
+Dependencies-free and super small: [![install size](https://packagephobia.now.sh/badge?p=simple-localstorage-cache)](https://packagephobia.now.sh/result?p=simple-localstorage-cache).
 
 ## Usage
 
