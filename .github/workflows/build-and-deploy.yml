@@ -1,0 +1,52 @@
+name: build and release
+on:
+  pull_request:
+    branches: [ master ]
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    name: build and test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+      - run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Upload build
+        uses: actions/upload-artifact@v1
+        with:
+          name: build
+          path: build/
+      - name: Lint
+        run: npm run lint
+      - name: Test
+        run: npm run test -- --coverage
+      - name: Codecov report
+        uses: codecov/codecov-action@v1
+  release:
+    name: release
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Download build
+        uses: actions/download-artifact@v1
+        with:
+          name: build
+      - name: Release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
