@@ -4,22 +4,20 @@ export interface CacheItem<T> {
 }
 
 class SimpleLocalStorageCache<T> {
-  private expiration: number | null = null;
   private key: string;
 
   constructor(key: string, private durationInSeconds: number) {
-    this.key = `slsc-${key}-${Math.floor(Math.random() * 1_000_000_000)}`
+    this.key = `slsc-${key}`
   }
 
   update(data: T): void {
     const durationInMilliseconds = this.durationInSeconds * 1000;
-    this.expiration = Date.now() + durationInMilliseconds;
     
     localStorage.setItem(
       this.key,
       JSON.stringify({
         data,
-        expiration: this.expiration,
+        expiration: Date.now() + durationInMilliseconds,
       })
     );
   }
@@ -41,7 +39,15 @@ class SimpleLocalStorageCache<T> {
   }
 
   hasCache(): boolean {
-    return !!this.expiration && this.expiration > Date.now();
+    const cache = localStorage.getItem(this.key);
+    
+    if (!cache) {
+      return false;
+    }
+
+    const parsedCache = JSON.parse(cache);
+
+    return Date.now() < parsedCache.expiration;
   }
 }
 
