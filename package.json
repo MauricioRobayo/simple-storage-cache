@@ -1,6 +1,6 @@
 {
   "name": "simple-localstorage-cache",
-  "version": "1.0.0",
+  "version": "1.0.0-semantic-release",
   "description": "",
   "main": "build/cache.js",
   "scripts": {
@@ -13,7 +13,10 @@
     "type": "git",
     "url": "git+https://github.com/MauricioRobayo/simple-localstorage-cache.git"
   },
-  "keywords": [],
+  "keywords": [
+    "localStorage",
+    "cache"
+  ],
   "author": "Mauricio Robayo <rfmajo@gmail.com> (https://www.mauriciorobayo.com/)",
   "license": "MIT",
   "bugs": {
@@ -21,11 +24,13 @@
   },
   "homepage": "https://github.com/MauricioRobayo/simple-localstorage-cache#readme",
   "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@types/jest": "^26.0.5",
     "@typescript-eslint/eslint-plugin": "^3.6.1",
     "@typescript-eslint/parser": "^3.6.1",
-    "axios": "^0.19.2",
+    "babel-jest": "^26.1.0",
     "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",
     "jest": "^26.1.0",
@@ -33,9 +38,6 @@
     "ts-jest": "^26.1.3"
   },
   "dependencies": {
-    "@babel/core": "^7.10.5",
-    "@babel/preset-env": "^7.10.4",
-    "babel-jest": "^26.1.0",
     "typescript": "^3.9.7"
   },
   "files": [
