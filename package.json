@@ -2,7 +2,7 @@
   "name": "simple-localstorage-cache",
   "version": "1.0.0-semantic-release",
   "description": "",
-  "main": "build/cache.js",
+  "main": "build/simpleLocalStorageCache.js",
   "scripts": {
     "lint": "eslint --fix .",
     "format": "prettier --write ./src",
