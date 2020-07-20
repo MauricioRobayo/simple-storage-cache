@@ -5,8 +5,11 @@ export interface CacheItem<T> {
 
 class SimpleLocalStorageCache<T> {
   private expiration: number | null = null;
+  private key: string;
 
-  constructor(private key: string, private durationInSeconds: number) {}
+  constructor(key: string, private durationInSeconds: number) {
+    this.key = `slsc-${key}-${Math.floor(Math.random() * 1_000_000_000)}`
+  }
 
   update(data: T): void {
     const durationInMilliseconds = this.durationInSeconds * 1000;

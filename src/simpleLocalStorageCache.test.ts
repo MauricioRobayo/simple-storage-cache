@@ -24,6 +24,7 @@ const storeMock = (function () {
 
 getItemSpy.mockImplementation(storeMock.getItem);
 setItemSpy.mockImplementation(storeMock.setItem);
+Math.random = jest.fn(() => 0.5);
 
 afterEach(() => {
   getItemSpy.mockClear();
@@ -41,7 +42,7 @@ describe("Cache", () => {
     const cache = new Cache<TestData>(localStorageKey, 15);
     expect(cache.get()).toBe(null);
     expect(getItemSpy).toBeCalledTimes(1);
-    expect(getItemSpy).toBeCalledWith(localStorageKey);
+    expect(getItemSpy).toBeCalledWith(`slsc-${localStorageKey}-500000000`);
   });
 
   it("should update the cache", () => {
