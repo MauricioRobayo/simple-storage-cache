@@ -28,9 +28,7 @@ const key = 'key';
 const cache = new SLSC(key, expiration);
 ```
 
-The `key` will be transformed to use the 'slsc-' prefix and a random number suffix:
-
-`slsc-key-1234567890`
+The `key` will be transformed to use the 'slsc-' prefix: `slsc-key`
 
 ### Methods
 
