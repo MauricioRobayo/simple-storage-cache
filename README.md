@@ -6,7 +6,9 @@
 
 Simple localStorage cache to save API responses and avoid multiple unnecessary requests.
 
-Dependencies-free and super small: [![install size](https://packagephobia.now.sh/badge?p=simple-localstorage-cache)](https://packagephobia.now.sh/result?p=simple-localstorage-cache).
+Dependencies-free and super small.
+
+[![install size](https://packagephobia.now.sh/badge?p=simple-localstorage-cache)](https://packagephobia.now.sh/result?p=simple-localstorage-cache)
 
 ## Usage
 
@@ -22,17 +24,23 @@ Create an instance with the key that you want to use and the expiration time in 
 import SimpleLocalStorageCache from 'simple-local-storage';
 
 const expiration = 60; // One minute
-const key = "key"; 
+const key = 'key'; 
 const cache = new SimpleLocalStorageCache(key, expiration);
 ```
 
-The key will be transformed to use the 'slsc-' prefix and a random number suffix, looking something like this: `slsc-key-1234567890`
+The key will be transformed to use the 'slsc-' prefix and a random number suffix, looking something like this:
 
-**`get()`**
+`slsc-key-1234567890`
+
+### Methods
+
+Simple localStorage cache provides three convenient methods: `get`, `update`, and `hasCache`.
+
+#### get()
 
 The `get()` method is used to get the data stored in localStorage. It will return `null` if there is not data to retrieve or if the key has expired.
 
-If there is data to retrieve and it hasn't expired, then it will return an object with two properties, the `data` property, containing the data that was originally stored, and the `expiration` property, with the expiration time as the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC.
+If there is data to retrieve and it hasn't expired, then it will return an object with two properties, the `data` property, containing the data that was originally stored, and the `expiration` property, with the expiration time as a number of milliseconds.
 
 ```js
 const cached = cache.get();
@@ -40,7 +48,7 @@ console.log(cached);
 // { data: { ... }, expiration: 1595179891655, }
 ```
 
-**`update(data)`**
+#### update(_data_)
 
 The `update(data)` method allows to set new data or update it:
 
@@ -52,7 +60,7 @@ const data = await response.json();
 cache.update(data);
 ```
 
-**`hasCache()`**
+#### hasCache()
 
 The `hasCache()` method will return `false` if there is no cache set or if it has expired. Otherwise it will return `true`.
 
