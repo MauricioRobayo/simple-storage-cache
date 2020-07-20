@@ -50,7 +50,10 @@
     }
   },
   "lint-staged": {
-    "*.ts": "eslint --cache --fix",
+    "*.ts": [
+      "eslint --cache --fix",
+      "jest --bail --findRelatedTests"
+    ],
     "*./src": "prettier --write"
   }
 }
