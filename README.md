@@ -21,14 +21,14 @@ npm i simple-local-storage
 Create an instance with the key that you want to use and the expiration time in seconds:
 
 ```js
-import SimpleLocalStorageCache from 'simple-local-storage';
+import SLSC from 'simple-local-storage';
 
 const expiration = 60; // One minute
 const key = 'key'; 
-const cache = new SimpleLocalStorageCache(key, expiration);
+const cache = new SLSC(key, expiration);
 ```
 
-The key will be transformed to use the 'slsc-' prefix and a random number suffix, looking something like this:
+The `key` will be transformed to use the 'slsc-' prefix and a random number suffix:
 
 `slsc-key-1234567890`
 
@@ -67,13 +67,13 @@ The `hasCache()` method will return `false` if there is no cache set or if it ha
 ## Example
 
 ```js
-import SimpleLocalStorageCache from "simple-local-storage";
+import SLSC from "simple-local-storage";
 import axios from "axios";
 
 async function getChuckNorrisFact() {
   const url = "https://api.chucknorris.io/jokes/random";
 
-  const cache = new SimpleLocalStorageCache("chuck", 60);
+  const cache = new SLSC("chuck", 60);
 
   if (cache.hasCache()) {
     return cache.get().data;
@@ -90,7 +90,7 @@ async function getChuckNorrisFact() {
 You can also use it with TypeScript:
 
 ```ts
-import SimpleLocalStorageCache from "simple-local-storage";
+import SLSC from "simple-local-storage";
 import axios, { AxiosResponse } from "axios";
 
 interface ChuckNorrisFact {
@@ -106,7 +106,7 @@ interface ChuckNorrisFact {
 async function getChuckNorrisFact() {
   const url = "https://api.chucknorris.io/jokes/random";
 
-  const cache = new SimpleLocalStorageCache<ChuckNorrisFact>("chuck", 60);
+  const cache = new SLSC<ChuckNorrisFact>("chuck", 60);
 
   if (cached.hasCache()) {
     return cache.get().data;
