@@ -31,6 +31,12 @@ afterEach(() => {
 });
 
 describe("Cache", () => {
+  it("should return not call `getItem` when it haven't been set", () => {
+    const cache = new Cache<TestData>(localStorageKey, 15);
+    expect(cache.hasCache()).toBe(false);
+    expect(getItemSpy).toBeCalledTimes(0);
+  });
+
   it("should return null when it haven't been updated", () => {
     const cache = new Cache<TestData>(localStorageKey, 15);
     expect(cache.get()).toBe(null);
@@ -41,6 +47,7 @@ describe("Cache", () => {
   it("should update the cache", () => {
     const cache = new Cache<TestData>("test", 15);
     cache.update(testData);
+    expect(cache.hasCache()).toBe(true);
     expect(setItemSpy).toBeCalledTimes(1);
     const { data: cachedPortfolio, expiration } = cache.get();
     expect(cachedPortfolio).toEqual(testData);
