@@ -1,6 +1,10 @@
 # Simple localStorage Cache
 
-A **Simple localStorage cache** that you can use to save API responses and avoid making multiple unnecessary requests.
+![build and release](https://github.com/MauricioRobayo/simple-localstorage-cache/workflows/build%20and%20release/badge.svg)
+[![codecov](https://codecov.io/gh/MauricioRobayo/simple-localstorage-cache/branch/master/graph/badge.svg)](https://codecov.io/gh/MauricioRobayo/simple-localstorage-cache)
+[![CodeFactor](https://www.codefactor.io/repository/github/mauriciorobayo/simple-localstorage-cache/badge)](https://www.codefactor.io/repository/github/mauriciorobayo/simple-localstorage-cache)
+
+A **simple localStorage cache** that you can use to save API responses and avoid making multiple unnecessary requests.
 
 ## Usage
 
