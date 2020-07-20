@@ -22,9 +22,11 @@ Create an instance with the key that you want to use and the expiration time in 
 import SimpleLocalStorageCache from 'simple-local-storage';
 
 const expiration = 60; // One minute
-const key = "some-key"; 
+const key = "key"; 
 const cache = new SimpleLocalStorageCache(key, expiration);
 ```
+
+The key will be transformed to use the 'slsc-' prefix and a random number suffix, looking something like this: `slsc-key-1234567890`
 
 **`get()`**
 
@@ -50,6 +52,10 @@ const data = await response.json();
 cache.update(data);
 ```
 
+**`hasCache()`**
+
+The `hasCache()` method will return `false` if there is no cache set or if it has expired. Otherwise it will return `true`.
+
 ## Example
 
 ```js
@@ -61,10 +67,8 @@ async function getChuckNorrisFact() {
 
   const cache = new SimpleLocalStorageCache("chuck", 60);
 
-  const cached = cache.get();
-
-  if (cached) {
-    return cached.data;
+  if (cache.hasCache()) {
+    return cache.get().data;
   }
 
   const response = await axios.get(url);
@@ -96,10 +100,8 @@ async function getChuckNorrisFact() {
 
   const cache = new SimpleLocalStorageCache<ChuckNorrisFact>("chuck", 60);
 
-  const cached = cache.get();
-
-  if (cached) {
-    return cached.data;
+  if (cached.hasCache()) {
+    return cache.get().data;
   }
 
   const response = await axios.get<string, AxiosResponse<ChuckNorrisFact>>(url);
