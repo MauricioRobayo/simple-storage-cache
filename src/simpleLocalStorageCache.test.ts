@@ -67,6 +67,8 @@ describe("Cache", () => {
   it("should return null if expiration time is set to '0'", () => {
     const cache = new Cache<TestData>("test", 0);
     cache.update(testData);
+    expect(cache.hasCache()).toBe(false);
+    expect(getItemSpy).toBeCalledTimes(0);
     expect(setItemSpy).toBeCalledTimes(1);
     expect(cache.get()).toBe(null);
     expect(getItemSpy).toBeCalledTimes(1);
