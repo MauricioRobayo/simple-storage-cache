@@ -37,18 +37,6 @@ class SimpleLocalStorageCache<T> {
 
     return parsedCache;
   }
-
-  hasCache(): boolean {
-    const cache = localStorage.getItem(this.key);
-    
-    if (!cache) {
-      return false;
-    }
-
-    const parsedCache = JSON.parse(cache);
-
-    return Date.now() < parsedCache.expiration;
-  }
 }
 
 export default SimpleLocalStorageCache;
