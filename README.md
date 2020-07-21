@@ -58,10 +58,6 @@ const data = await response.json();
 cache.update(data);
 ```
 
-#### hasCache()
-
-The `hasCache()` method will return `false` if there is no cache set or if it has expired. Otherwise it will return `true`.
-
 ## Example
 
 ```js
@@ -73,8 +69,10 @@ async function getChuckNorrisFact() {
 
   const cache = new SLSC("chuck", 60);
 
-  if (cache.hasCache()) {
-    return cache.get().data;
+  const cached = cache.get();
+
+  if (cached) {
+    return cached.data;
   }
 
   const response = await axios.get(url);
@@ -106,8 +104,10 @@ async function getChuckNorrisFact() {
 
   const cache = new SLSC<ChuckNorrisFact>("chuck", 60);
 
-  if (cached.hasCache()) {
-    return cache.get().data;
+  const cached = cache.get();
+
+  if (cached) {
+    return cached.data;
   }
 
   const response = await axios.get<string, AxiosResponse<ChuckNorrisFact>>(url);
