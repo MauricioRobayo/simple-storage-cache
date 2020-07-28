@@ -32,7 +32,7 @@ The `key` will be transformed to use the 'slsc-' prefix: `slsc-key`
 
 ### Methods
 
-Simple localStorage cache provides three convenient methods: `get`, `update`, and `hasCache`.
+Simple localStorage cache provides two convenient methods: `get` and `update`.
 
 #### get()
 
