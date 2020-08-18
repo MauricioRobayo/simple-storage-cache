@@ -6,18 +6,16 @@ interface CacheItem<T> {
 class SimpleLocalStorageCache<T> {
   private key: string;
 
-  constructor(key: string, private durationInSeconds: number) {
+  constructor(key: string, private milliseconds: number) {
     this.key = `slsc-${key}`
   }
 
   update(data: T): void {
-    const durationInMilliseconds = this.durationInSeconds * 1000;
-    
     localStorage.setItem(
       this.key,
       JSON.stringify({
         data,
-        expiration: Date.now() + durationInMilliseconds,
+        expiration: Date.now() + this.milliseconds,
       })
     );
   }
