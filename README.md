@@ -119,6 +119,10 @@ async function getChuckNorrisFact() {
 }
 ```
 
+## Acknowledgements
+
+Some of the best ideas for this module came from an outstanding [code review](https://codereview.stackexchange.com/a/247898/146118) by [r3dst0rm](https://github.com/r3dst0rm).
+
 ## Contributing
 
 Contributions, issues and feature requests are welcome!
