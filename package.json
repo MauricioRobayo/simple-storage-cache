@@ -1,7 +1,7 @@
 {
   "name": "simple-storage-cache",
   "version": "1.0.0-semantic-release",
-  "description": "",
+  "description": "Simple Storage Cache to save API responses and avoid unnecessary requests.",
   "main": "build/simpleStorageCache.js",
   "scripts": {
     "lint": "eslint --fix .",
@@ -15,7 +15,9 @@
   },
   "keywords": [
     "Storage",
-    "cache"
+    "cache",
+    "localStorage",
+    "sessionStorage"
   ],
   "author": "Mauricio Robayo <rfmajo@gmail.com> (https://www.mauriciorobayo.com/)",
   "license": "MIT",
