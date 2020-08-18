@@ -1,4 +1,4 @@
-import Cache from "./simpleLocalStorageCache";
+import Cache from "./simpleStorageCache";
 
 interface TestData {
   test: string;
