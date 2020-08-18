@@ -1,10 +1,10 @@
-# Simple localStorage Cache [![npm version](https://badge.fury.io/js/simple-storage-cache.svg)](https://www.npmjs.com/package/simple-storage-cache)
+# Simple Storage Cache [![npm version](https://badge.fury.io/js/simple-storage-cache.svg)](https://www.npmjs.com/package/simple-storage-cache)
 
 ![build and release](https://github.com/MauricioRobayo/simple-storage-cache/workflows/build%20and%20release/badge.svg)
 [![codecov](https://codecov.io/gh/MauricioRobayo/simple-storage-cache/branch/master/graph/badge.svg)](https://codecov.io/gh/MauricioRobayo/simple-storage-cache)
 [![CodeFactor](https://www.codefactor.io/repository/github/mauriciorobayo/simple-storage-cache/badge)](https://www.codefactor.io/repository/github/mauriciorobayo/simple-storage-cache)
 
-Simple localStorage cache to save API responses and avoid multiple unnecessary requests.
+Simple Storage cache to save API responses and avoid multiple unnecessary requests.
 
 Dependencies-free and super small.
 
@@ -15,28 +15,28 @@ Dependencies-free and super small.
 Install the package in your dependencies:
 
 ```
-npm i simple-local-storage
+npm i simple-storage-cache
 ```
 
 Create an instance with the key that you want to use and the expiration time in milliseconds:
 
 ```js
-import SSC from 'simple-local-storage';
+import Cache from 'simple-storage-cache';
 
-const expiration = 60 * 1000; // One minute
+const expiration = 60000; // One minute
 const key = 'somekey'; 
-const cache = new SSC(key, expiration);
+const cache = new Cache(key, expiration);
 ```
 
 The `key` will be transformed to use the 'ssc-' prefix: `ssc-key`
 
 ### Methods
 
-Simple localStorage cache provides two convenient methods: `get` and `update`.
+Simple Storage cache provides two convenient methods: `get` and `update`.
 
 #### get()
 
-The `get()` method is used to get the data stored in localStorage. It will return `null` if there is not data to retrieve or if the key has expired.
+The `get()` method is used to get the data stored in Storage. It will return `null` if there is not data to retrieve or if the key has expired.
 
 If there is data to retrieve and it hasn't expired, then it will return an object with two properties, the `data` property, containing the data that was originally stored, and the `expiration` property, with the expiration time as a number of milliseconds.
 
@@ -61,13 +61,13 @@ cache.update(data);
 ## Example
 
 ```js
-import SSC from "simple-local-storage";
+import Cache from "simple-storage-cache";
 import axios from "axios";
 
 async function getChuckNorrisFact() {
   const ONE_MINUTE = 60000;
   const URL = "https://api.chucknorris.io/jokes/random";
-  const cache = new SSC("chuck", ONE_MINUTE);
+  const cache = new Cache("chuck", ONE_MINUTE);
 
   const cached = cache.get();
 
@@ -86,7 +86,7 @@ async function getChuckNorrisFact() {
 You can also use it with TypeScript:
 
 ```ts
-import SSC from "simple-local-storage";
+import Cache from "simple-storage-cache";
 import axios, { AxiosResponse } from "axios";
 
 interface ChuckNorrisFact {
@@ -103,7 +103,7 @@ async function getChuckNorrisFact() {
   const ONE_MINUTE = 60000
   const URL = "https://api.chucknorris.io/jokes/random";
   
-  const cache = new SSC<ChuckNorrisFact>("chuck", ONE_MINUTE);
+  const cache = new Cache<ChuckNorrisFact>("chuck", ONE_MINUTE);
   
   const cached = cache.get();
 

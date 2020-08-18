@@ -2,7 +2,7 @@
   "name": "simple-storage-cache",
   "version": "1.0.0-semantic-release",
   "description": "",
-  "main": "build/simpleLocalStorageCache.js",
+  "main": "build/simpleStorageCache.js",
   "scripts": {
     "lint": "eslint --fix .",
     "format": "prettier --write ./src",
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/MauricioRobayo/simple-storage-cache.git"
   },
   "keywords": [
-    "localStorage",
+    "Storage",
     "cache"
   ],
   "author": "Mauricio Robayo <rfmajo@gmail.com> (https://www.mauriciorobayo.com/)",
