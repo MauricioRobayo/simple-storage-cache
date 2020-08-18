@@ -28,8 +28,7 @@ getItemSpy.mockImplementation(storeMock.getItem);
 setItemSpy.mockImplementation(storeMock.setItem);
 
 afterEach(() => {
-  getItemSpy.mockClear();
-  setItemSpy.mockClear();
+  jest.clearAllMocks();
 });
 
 describe("Cache", () => {
