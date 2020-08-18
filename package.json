@@ -1,8 +1,8 @@
 {
-  "name": "simple-localstorage-cache",
+  "name": "simple-storage-cache",
   "version": "1.0.0-semantic-release",
   "description": "",
-  "main": "build/simpleLocalStorageCache.js",
+  "main": "build/simpleStorageCache.js",
   "scripts": {
     "lint": "eslint --fix .",
     "format": "prettier --write ./src",
@@ -11,18 +11,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MauricioRobayo/simple-localstorage-cache.git"
+    "url": "git+https://github.com/MauricioRobayo/simple-storage-cache.git"
   },
   "keywords": [
-    "localStorage",
+    "Storage",
     "cache"
   ],
   "author": "Mauricio Robayo <rfmajo@gmail.com> (https://www.mauriciorobayo.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MauricioRobayo/simple-localstorage-cache/issues"
+    "url": "https://github.com/MauricioRobayo/simple-storage-cache/issues"
   },
-  "homepage": "https://github.com/MauricioRobayo/simple-localstorage-cache#readme",
+  "homepage": "https://github.com/MauricioRobayo/simple-storage-cache#readme",
   "devDependencies": {
     "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
