@@ -18,13 +18,13 @@ Install the package in your dependencies:
 npm i simple-local-storage
 ```
 
-Create an instance with the key that you want to use and the expiration time in seconds:
+Create an instance with the key that you want to use and the expiration time in milliseconds:
 
 ```js
 import SSC from 'simple-local-storage';
 
-const expiration = 60; // One minute
-const key = 'key'; 
+const expiration = 60 * 1000; // One minute
+const key = 'somekey'; 
 const cache = new SSC(key, expiration);
 ```
 
@@ -65,9 +65,9 @@ import SSC from "simple-local-storage";
 import axios from "axios";
 
 async function getChuckNorrisFact() {
-  const url = "https://api.chucknorris.io/jokes/random";
-
-  const cache = new SSC("chuck", 60);
+  const ONE_MINUTE = 60000;
+  const URL = "https://api.chucknorris.io/jokes/random";
+  const cache = new SSC("chuck", ONE_MINUTE);
 
   const cached = cache.get();
 
@@ -100,10 +100,11 @@ interface ChuckNorrisFact {
 }
 
 async function getChuckNorrisFact() {
-  const url = "https://api.chucknorris.io/jokes/random";
-
-  const cache = new SSC<ChuckNorrisFact>("chuck", 60);
-
+  const ONE_MINUTE = 60000
+  const URL = "https://api.chucknorris.io/jokes/random";
+  
+  const cache = new SSC<ChuckNorrisFact>("chuck", ONE_MINUTE);
+  
   const cached = cache.get();
 
   if (cached) {
