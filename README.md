@@ -4,7 +4,7 @@
 [![codecov](https://codecov.io/gh/MauricioRobayo/simple-storage-cache/branch/master/graph/badge.svg)](https://codecov.io/gh/MauricioRobayo/simple-storage-cache)
 [![CodeFactor](https://www.codefactor.io/repository/github/mauriciorobayo/simple-storage-cache/badge)](https://www.codefactor.io/repository/github/mauriciorobayo/simple-storage-cache)
 
-Simple Storage cache to save API responses and avoid multiple unnecessary requests.
+Simple Storage Cache to save API responses and avoid multiple unnecessary requests.
 
 Dependencies-free and super small.
 
@@ -12,10 +12,10 @@ Dependencies-free and super small.
 
 ## Usage
 
-Install the package in your dependencies:
+Install [`simple-storage-cache`](https://www.npmjs.com/package/simple-storage-cache):
 
 ```
-npm i simple-storage-cache
+npm install simple-storage-cache
 ```
 
 Create an instance with the key that you want to use and the expiration time in milliseconds:
@@ -23,12 +23,18 @@ Create an instance with the key that you want to use and the expiration time in 
 ```js
 import Cache from 'simple-storage-cache';
 
-const expiration = 60000; // One minute
-const key = 'somekey'; 
-const cache = new Cache(key, expiration);
+const ONE_MINUTE = 60000;
+const KEY = 'somekey'; 
+const cache = new Cache(KEY, ONE_MINUTE);
 ```
 
-The `key` will be transformed to use the 'ssc-' prefix: `ssc-key`
+The `key` will be transformed to use the 'ssc-' prefix: `ssc-somekey`.
+
+By default, the module will use [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), but you can change the [`Storage`](https://developer.mozilla.org/en-US/docs/Web/API/Storage) interface to be [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) by explicitly passing it on the constructor:
+
+```js
+const cache = new Cache('somekey', 60000, sessionStorage);
+```
 
 ### Methods
 
