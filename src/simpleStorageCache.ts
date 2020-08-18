@@ -3,7 +3,7 @@ interface CacheItem<T> {
   expiration: number;
 }
 
-class SimpleLocalStorageCache<T> {
+class SimpleStorageCache<T> {
   private key: string;
 
   constructor(key: string, private milliseconds: number, private storage: Storage = localStorage) {
@@ -37,4 +37,4 @@ class SimpleLocalStorageCache<T> {
   }
 }
 
-export default SimpleLocalStorageCache;
+export default SimpleStorageCache;
