@@ -21,14 +21,14 @@ npm i simple-local-storage
 Create an instance with the key that you want to use and the expiration time in seconds:
 
 ```js
-import SLSC from 'simple-local-storage';
+import SSC from 'simple-local-storage';
 
 const expiration = 60; // One minute
 const key = 'key'; 
-const cache = new SLSC(key, expiration);
+const cache = new SSC(key, expiration);
 ```
 
-The `key` will be transformed to use the 'slsc-' prefix: `slsc-key`
+The `key` will be transformed to use the 'ssc-' prefix: `ssc-key`
 
 ### Methods
 
@@ -61,13 +61,13 @@ cache.update(data);
 ## Example
 
 ```js
-import SLSC from "simple-local-storage";
+import SSC from "simple-local-storage";
 import axios from "axios";
 
 async function getChuckNorrisFact() {
   const url = "https://api.chucknorris.io/jokes/random";
 
-  const cache = new SLSC("chuck", 60);
+  const cache = new SSC("chuck", 60);
 
   const cached = cache.get();
 
@@ -86,7 +86,7 @@ async function getChuckNorrisFact() {
 You can also use it with TypeScript:
 
 ```ts
-import SLSC from "simple-local-storage";
+import SSC from "simple-local-storage";
 import axios, { AxiosResponse } from "axios";
 
 interface ChuckNorrisFact {
@@ -102,7 +102,7 @@ interface ChuckNorrisFact {
 async function getChuckNorrisFact() {
   const url = "https://api.chucknorris.io/jokes/random";
 
-  const cache = new SLSC<ChuckNorrisFact>("chuck", 60);
+  const cache = new SSC<ChuckNorrisFact>("chuck", 60);
 
   const cached = cache.get();
 
