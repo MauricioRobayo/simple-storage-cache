@@ -7,7 +7,7 @@ class SimpleStorageCache<T> {
   private key: string;
 
   constructor(key: string, private milliseconds: number, private storage: Storage = localStorage) {
-    this.key = `slsc-${key}`
+    this.key = `ssc-${key}`
   }
 
   update(data: T): void {

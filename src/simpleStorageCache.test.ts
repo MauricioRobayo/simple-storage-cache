@@ -36,7 +36,7 @@ describe("Cache", () => {
     const cache = new Cache<TestData>(STORAGE_KEY, ONE_SECOND);
     expect(cache.get()).toBe(null);
     expect(getItemSpy).toBeCalledTimes(1);
-    expect(getItemSpy).toBeCalledWith(`slsc-${STORAGE_KEY}`);
+    expect(getItemSpy).toBeCalledWith(`ssc-${STORAGE_KEY}`);
   });
 
   it("should update the cache", () => {
