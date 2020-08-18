@@ -1,4 +1,4 @@
-export interface CacheItem<T> {
+interface CacheItem<T> {
   data: T;
   expiration: number;
 }
