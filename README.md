@@ -4,7 +4,7 @@
 [![codecov](https://codecov.io/gh/MauricioRobayo/simple-storage-cache/branch/master/graph/badge.svg)](https://codecov.io/gh/MauricioRobayo/simple-storage-cache)
 [![CodeFactor](https://www.codefactor.io/repository/github/mauriciorobayo/simple-storage-cache/badge)](https://www.codefactor.io/repository/github/mauriciorobayo/simple-storage-cache)
 
-Simple Storage Cache to save API responses and avoid multiple unnecessary requests.
+Simple Storage Cache to save API responses and avoid unnecessary requests.
 
 Dependencies-free and super small.
 
