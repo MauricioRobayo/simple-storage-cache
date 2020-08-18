@@ -28,7 +28,7 @@ const KEY = 'somekey';
 const cache = new Cache(KEY, ONE_MINUTE);
 ```
 
-The `key` will be transformed to use the 'ssc-' prefix: `'ssc-somekey'`.
+The `key` will be transformed to use the `'ssc-'` prefix: `'ssc-somekey'`.
 
 By default, the module will use [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), but you can change the [`Storage`](https://developer.mozilla.org/en-US/docs/Web/API/Storage) interface to be [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) by explicitly passing it on the constructor:
 
