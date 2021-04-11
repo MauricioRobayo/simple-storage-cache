@@ -54,5 +54,10 @@
       "jest --bail --findRelatedTests"
     ],
     "*./src": "prettier --write"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
   }
 }
