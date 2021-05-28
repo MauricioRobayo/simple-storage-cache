@@ -6,8 +6,12 @@ interface CacheItem<T> {
 class SimpleStorageCache<T> {
   private key: string;
 
-  constructor(key: string, private milliseconds: number, private storage: Storage = localStorage) {
-    this.key = `ssc-${key}`
+  constructor(
+    key: string,
+    private milliseconds: number,
+    private storage: Storage = localStorage
+  ) {
+    this.key = `ssc-${key}`;
   }
 
   update(data: T): void {
@@ -22,7 +26,7 @@ class SimpleStorageCache<T> {
 
   get(): CacheItem<T> | null {
     const cache = this.storage.getItem(this.key);
-    
+
     if (!cache) {
       return null;
     }
